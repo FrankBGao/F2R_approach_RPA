@@ -28,13 +28,17 @@ The rule is the "if ... then ...'' statement, this is a widely applied definitio
 
 (3) Rule application, working with the user. It is obvious the ``then'' part in rule could be automatically executed by the robot. Thus, in operation, the robot listens on forms, if certain action happened, it will perform the suitable rule, without hesitation.
 
-And these three steps could be illustrated as the Figure below.
-![image](pic/GeneralStructure3_4.png "F2R Approach")
+And these three steps could be illustrated as the Figure below. This picture is quoted from the paper.
+<!-- ![image](pic/GeneralStructure3_4.png "F2R Approach") -->
+
+<div align=center>
+<img src="pic/GeneralStructure3_4.png" width="550"  alt="The F2R Approach"/>
+</div>
 
 ## The Example of Defining A Form in F2R Approach
 
 The example of transferring a real form in the IT system to a form in F2R Approach is in below. This is a form on the webpage, it has four valuable fields. It could be written as FI=(I,{ Name, Age, Gender, Result}). In the paper, we also mention the issue of form instance id, as the limit of time we will implement it in the future.
-![image](pic/interview.png "Interviewee")
+![image](pic/interview.png "Interviewee" )
 
 For achieving the FI=(I,{ Name, Age, Gender,Result}) form, we should do some define, we call it form setting. It could be written as below.
 
@@ -93,16 +97,16 @@ It is like teaching the robot to drive a car, not teaching the robot to drive to
 ## RPA Robot Structure in F2R Approach
 
 After this, RPA robot could collect user interactions (form action, IO-Log), learning rules from IO-Log, and applying rules for working with user. Each of these abilities we design a component, ear, brain, arm. Ear is for hearing the FA; brain is for deducing the rule and memorize the IO-Log, and arm is for translating the response FA, which is the result of the rule, on IT system.
-![image](pic/03RobotStructure.png "RobotStructure")
 
-Here are two videos for the running examples.
+<div align=center>
+<img src="pic/03RobotStructure.png" width="550"  alt="RobotStructure"/>
+</div>
+
+<!-- Here are two videos for the running examples. -->
 
 This example is showing the procedure of robot learning rules from IO-Log.
 And, the rule is deduced by the Decision Tree Algorithm.
 ![image](pic/brain.gif "Robot_Learn_Rule")
-
-This example is showing the procedure of robot listening on the form and does response.
-![image](pic/Arm.gif "Robot_Learn_Rule")
 
 For implementation of each component, ear is done by a Chrome-extension(running in Chrome's back-end) in JavaScript; brain is done by a web-service in Python; arm is done by Selenium(Web-page automation software) in Python.
 
@@ -118,6 +122,9 @@ This procedure is illustrated by the Figure below.
 The advantages of collecting IO-Log based on form setting are accuracy, effectiveness, and privacy.
 The robot collects information from the specific elements on the web-page, it ignores other no-value elements and user's arbitrary motions, this mechanism is more accurate and effective compared with current RPA products.
 And, Ear only listens to the pages have forms, user's interactions with other pages will be ignored, this way could keep the user's privacy, effectively.
+
+This example is showing the procedure of robot listening on the form and does response.
+![image](pic/Arm.gif "Robot_Learn_Rule")
 
 For doing response, after FA stored, Brain will match this FA with rules. If this FA meets a certain rule's condition, Brain will generate a response FA by this rule.
 Then, Brain will send this FA to Arm, it will reach a new form and translate FA into detail movements, after this, Arm will execute the submit motion. This procedure is illustrated by the Figure in below.
