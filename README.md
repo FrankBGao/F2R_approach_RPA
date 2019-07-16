@@ -175,7 +175,7 @@ turn on develop mode for your Chrome, and unpack the IO_log_collector. More deta
 ![image](pic/interviewee.png)
 
 - "\employee" is for the employee system, you could run it by double click on the "run.bat", you will see a cmd window for running this system, and it runs at the <http://127.0.0.1:5002>. You could use Chrome to get this URL, and you will see the UI  like below,
-![image](pic/employee.png)
+![image](pic/employee.PNG)
 
 (3) Run the F2R robot, it is about the brain and arm of the robot. It is in the folder of "server", you could double click on the "run.bat" to run it. It will trigger a cmd window to run the robot backend, and a Chrome to run the robot arm. And the robot runs at <http://127.0.0.1:8000>, you could use the other Chrome to browse it. After this, you will see something like the Figure in below.
 ![image](pic/robot.png)
