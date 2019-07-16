@@ -1,0 +1,55 @@
+[
+  {
+    "name": "Interviewee",
+    "type": "web",
+    "address": "http://127.0.0.1:5001/interviewee_form",
+    "form_field": [
+      {
+        "name": "Name",
+        "address": "/html/body/div/div[2]/div[2]/form/div[1]/input"
+      },
+      {
+        "name": "Age",
+        "address": "/html/body/div/div[2]/div[2]/form/div[2]/input"
+      },
+      {
+        "name": "Gender",
+        "address": "/html/body/div/div[2]/div[2]/form/div[3]/select"
+      },
+      {
+        "name": "Result",
+        "address": "/html/body/div/div[2]/div[2]/form/div[4]/select"
+      }
+    ],
+    "finish_route": {
+      "motion": "click",
+      "address": "/html[1]/body[1]/div/div[2]/div[2]/form[1]/button[1]"
+    }
+  },
+  {
+    "name": "New Employee",
+    "type": "web",
+    "address": "http://127.0.0.1:5002/new_form",
+
+    "form_field": [
+      {
+        "name": "Name",
+        "address": "/html/body/div/div[2]/div[2]/form/div[1]/input"
+      },
+      {
+        "name": "Age",
+        "address": "/html/body/div/div[2]/div[2]/form/div[2]/input"
+      },
+      {
+        "name": "Gender",
+        "address": "/html/body/div/div[2]/div[2]/form/div[3]/select"
+      }
+    ],
+
+    "finish_route": {
+      "motion": "click",
+      "address": "/html[1]/body[1]/div[1]/div[2]/div[2]/form[1]/button[1]"
+    }
+  }
+]
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>FormSetting</title>
+
+    <meta name="description" content="Show Rules">
+    <meta name="author" content="Pads!">
+
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/page_setting.css" rel="stylesheet">
+    <link href="/static/css/generate_style.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row" style="margin-top: 15px">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-4">
+
+            <h3><img src="/static/pic/rwth_pads_en_rgb_big.png" style="height: 50px;">
+                Brain-Form Setting
+            </h3>
+        </div>
+        <div class="col-md-7">
+            <div class="btn-group" role="group" style="margin-top: 10px;margin-left: 15px">
+
+                <button class="btn btn-secondary nvg-btn" type="button" id="button_page_rule">
+                    Rule
+                </button>
+                <button class="btn btn-secondary nvg-btn nvg-btn-select" type="button" id="button_page_form_setting">
+                    Form Setting
+                </button>
+{#                <button class="btn btn-secondary nvg-btn" type="button" id="button_page_commander">#}
+{#                    Commander#}
+{#                </button>#}
+                <button class="btn btn-secondary nvg-btn" type="button" id="button_page_io_log">
+                    IO-Log
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+
+        <div class="col-md-3">
+            <h4>List</h4>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Form Name
+                    </th>
+                    <th>
+
+                    </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for x in inter_list %}
+                    <tr class="{{ x.Type_is }}">
+                        <td>
+                            {{ x.num }}
+                        </td>
+                        <td>
+                            {{ x.Name }}
+                        </td>
+                        <td>
+                            <button class="btn btn-secondary Detail" type="button" value="{{ x.Name }}">
+                                Detail
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-7">
+            <pre id="one">
+
+            </pre>
+        </div>
+
+        <div class="col-md-1">
+        </div>
+
+    </div>
+</div>
+
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/mermaid.js"></script>
+<script src="/static/js/setting.js"></script>
+<script src="/static/js/generate.js"></script>
+
+</body>
+</html>

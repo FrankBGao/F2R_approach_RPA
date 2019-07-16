@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Interviewee</title>
+
+    <meta name="description" content="example webpage for robot playground">
+    <meta name="author" content="Pads!">
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container-fluid" style="padding: 50px">
+
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <h3>
+                <img src="/static/pic/rwth_pads_en_rgb.png" style="height: 50px;">
+                <g class="gr_ gr_5 gr-alert gr_gramm gr_inline_cards gr_run_anim Grammar multiReplace" id="5">
+                    Interviewee Information
+                </g>
+            </h3>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+
+            <form role="form" method="post" action="/receive_from">
+
+                <div class="form-group">
+
+                    <label for="Name">
+                        Name
+                    </label>
+                    <input type="text" class="form-control" name="Name"  value="{{ i.Name }}">
+                </div>
+
+                <div class="form-group">
+
+                    <label for="Age">
+                        Age
+                    </label>
+                    <input type="number" class="form-control" name="Age" value="{{ i.Age }}">
+                </div>
+
+                <div class="form-group">
+
+                    <label for="Gender">Gender</label>
+                    <select class="form-control" name="Gender">
+                        <option {{ i.Gender.Male }}>Male</option>
+                        <option {{ i.Gender.Female }}>Female</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="Result">Result</label>
+                    <select class="form-control" name="Result">
+                        <option {{ i.Result.Estimating }} value="Estimating">Estimating</option>
+                        <option {{ i.Result.Pass }} value="Pass">Pass</option>
+                        <option {{ i.Result.Fail }} value="Fail">Fail</option>
+                    </select>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">
+                    Confirm
+                </button>
+
+            </form>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+{#<script src="/static/js/dev.js"></script>#}
+{#<script src="/static/js/xpath.js"></script>#}
+</body>
+</html>

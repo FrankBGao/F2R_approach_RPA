@@ -1,0 +1,20 @@
+[
+  {
+    "name": "interview2new",
+    "type_is": "simple",
+    "listen": "Interviewee",
+    "generate": "New Employee",
+    "condition_type": "modeled",
+    "rule_id":"9a04dabb-c355-4cfc-8bfa-8965559843ea",
+    "condition": [
+      ["fread", "Result", "equal", "Estimating"],
+      ["fwrite","Result", "equal", "Pass"]
+    ],
+    "response":[
+        [{"listen": [["final_value", "Name"]], "arg": {}}, "equal", ["fwrite", "Name"]],
+        [{"listen": [["final_value", "Age"]], "arg": {}}, "equal", ["fwrite", "Age"]],
+        [{"listen": [["final_value", "Gender"]], "arg": {}}, "equal", ["fwrite", "Gender"]]
+    ]
+
+  }
+]

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Rule</title>
+
+    <meta name="description" content="Show Rules">
+    <meta name="author" content="Pads!">
+
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/page_rules.css" rel="stylesheet">
+    <link href="/static/css/generate_style.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row" style="margin-top: 15px">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-4">
+
+            <h3><img src="/static/pic/rwth_pads_en_rgb_big.png" style="height: 50px;">
+                Brain-Rule
+            </h3>
+        </div>
+        <div class="col-md-7">
+            <div class="btn-group" role="group" style="margin-top: 10px;margin-left: 15px">
+
+                <button class="btn btn-secondary nvg-btn  nvg-btn-select" type="button" id="button_page_rule">
+                    Rule
+                </button>
+                <button class="btn btn-secondary nvg-btn" type="button" id="button_page_form_setting">
+                    Form Setting
+                </button>
+                {#                <button class="btn btn-secondary nvg-btn" type="button" id="button_page_commander">#}
+                {#                    Commander#}
+                {#                </button>#}
+                <button class="btn btn-secondary nvg-btn" type="button" id="button_page_io_log">
+                    IO-Log
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-3">
+            <h4>List</h4>
+            <a href="/learn_rule" class="btn btn-secondary" type="Modify" id="new"
+               style="margin-left: 5px; margin-bottom: 5px; background-color: #5cb85c; color: white">Learn</a>
+            <a href="/reset?what=rule" class="btn btn-secondary" type="Modify" id="Reset"
+               style="margin-left: 5px; margin-bottom: 5px">Reset</a>
+
+            {% for x in rule_list %}
+                <div class="card" id="{{ x.Id }}">
+                    <div class="card-header">
+                        <a style="color: black" class="card-link collapsed" data-toggle="collapse"
+                           data-parent="#card-711622" href="#card-element-{{ x.Name }}">{{ x.Name }}</a>
+                    </div>
+                    <div id="card-element-{{ x.Name }}" class="collapse show">
+                        <div class="card-body" style="margin-left: 30px">
+                            <p>{{ x.Desp|safe }}<p>
+                        </div>
+
+                        <div class="btn-group" role="group" style="margin-bottom: 5px; margin-left: 5px">
+
+                            <button class="btn btn-secondary Detail" type="button" value="{{ x.Id }}">
+                                Detail
+                            </button>
+                            <button class="btn btn-secondary Delete" type="button" value="{{ x.Id }}">
+                                Delete
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+        <div class="col-md-7">
+            <h4>Condition</h4>
+            <div class="row" style="height: 300px; border: 1px solid lightgrey; margin-right: 5px; margin-left: 5px">
+                <div class="col-md-12">
+                    <img src="" id="condition_pic"/>
+                    <h6 id="condition" style="margin-top: 10px"></h6>
+
+                </div>
+            </div>
+            <h4>Response</h4>
+            <div class="row" style="height: 400px; border: 1px solid lightgrey;  margin-right: 5px;margin-left: 5px">
+                <div class="col-md-12">
+                    <div class="mermaid" id="flow_chart">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+</div>
+
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/mermaid.js"></script>
+<script src="/static/js/rules.js"></script>
+<script src="/static/js/generate.js"></script>
+
+</body>
+</html>

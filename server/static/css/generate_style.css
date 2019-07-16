@@ -1,0 +1,37 @@
+.nvg-btn {
+    color: #fff;
+    background-color: #6c757db5;
+    border-color: #6c757db5;
+}
+
+.nvg-btn-select {
+    color: #fff;
+    background-color: #6c757d75;
+    border-color: #6c757d75;
+}
+
+pre {
+    outline: 1px solid #ffffff;
+    padding: 5px;
+    margin: 5px;
+}
+
+.string {
+    color: #89b26c;
+}
+
+.number {
+    color: #d19a66;
+}
+
+.boolean {
+    color: blue;
+}
+
+.null {
+    color: magenta;
+}
+
+.key {
+    color: #c46262;
+}

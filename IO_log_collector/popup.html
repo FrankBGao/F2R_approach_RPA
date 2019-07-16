@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="javascripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="javascripts/parseuri.js"></script>
+    <script type="text/javascript" src="javascripts/utils.js"></script>
+    <script type="text/javascript" src="javascripts/popup.js"></script>
+    <script type="text/javascript" src="javascripts/content_script.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        body { color: #000; font: 12px/20px Helvetica,arial,sans-serif; padding: 10px; margin: 0; text-align: center; }
+        .clicked { background-color: #9BCFFF!important; }
+
+        table#sets { margin-bottom: 0;margin-top: 10px;margin-right: 60px;min-width: 300px; }
+        table#sets tbody tr { cursor: pointer; }
+        table#sets thead tr { cursor: default; }
+        table#sets td, table#sets th { text-align: center;vertical-align: middle; -webkit-user-select: none; }
+        table#sets td.setName { min-width: 100px; }
+        table#sets td.remove { width: 45px; }
+        table#sets td.restore.disabled { color: #c3c3c3; }
+        table#sets td.url { text-align:left; }
+        table#sets tbody td:hover {background-color: #D5EBFF;}
+        table#sets tbody td.remove:hover {background-color: #FFB0B0;}
+        table#sets button { margin-top: -3px; }
+        table#sets input.txtSetName { margin-top: 0;margin-bottom: 0;height: 15px;width: 90px; }
+        table#sets input[type=checkbox] { margin-top: -3px; }
+        .dropdown-menu { left: 38%; text-align: left }
+        #txtFormJson { height: 90px; width: 500px; }
+    </style>
+
+</head>
+    <body>
+
+        <div class="text-center" id="error" style="display: none;color:#c91d1d;">
+            <h6></h6>
+        </div>
+
+        <div class="btn-group">
+            <!--<button type="button" id="check" class="btn"><i class="icon-eye-open"></i></button>-->
+            <button type="button" id="store" class="btn"><i class="icon-arrow-down"></i>Test</button>
+        </div>
+		
+		
+		
+    </body>
+</html>

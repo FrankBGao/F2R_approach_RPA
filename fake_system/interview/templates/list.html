@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Interviewee List</title>
+
+    <meta name="description" content="example webpage for robot playground">
+    <meta name="author" content="Pads!">
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container-fluid" style="padding: 50px">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <img src="/static/pic/rwth_pads_en_rgb_big.png" style="height: 50px;">
+                    <h3>
+                        <a  style="color: black; " href="/reset" id="reset">Interviewee List</a>
+                    </h3>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <div id="card-963063">
+                        {% for x in inter_list %}
+                            <div class="card">
+                                <div class="card-header">
+                                    <a style="color: black" class="card-link collapsed" data-toggle="collapse"
+                                       data-parent="#card-711622" href="#card-element-{{ x.Name }}">{{ x.Name }}</a>
+                                </div>
+                                <div id="card-element-{{ x.Name }}" class="collapse">
+                                    <div class="card-body" style="margin-left: 30px">
+                                        <p>{{ x.inter|safe }}<p>
+                                    </div>
+                                    <a href="/interviewee_form?name={{ x.Name }}" class="btn btn-secondary"
+                                       type="Modify" id="Modify" style="margin-left: 5px; margin-bottom: 5px">Modify</a>
+
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+<footer>
+
+</footer>
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/xpath.js"></script>
+</body>
+</html>

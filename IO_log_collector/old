@@ -1,0 +1,115 @@
+////////////////////////////////////////////////////////////////
+// chrome.windows.onFocusChanged.addListener(currentWindow());
+
+// chrome.tabs.onCreated.addListener(sendMessage);
+// chrome.tabs.onUpdated.addListener(sendMessage);
+// chrome.tabs.onZoomChange.addListener(sendMessage);
+
+//webRequest
+// chrome.webRequest.onCompleted.addListener(sendMessage, filters, opt_extraInfoSpec);
+// chrome.webRequest.onResponseStarted.addListener(sendMessage, filters, opt_extraInfoSpec);
+// chrome.webRequest.onBeforeRedirect.addListener(sendMessage, filters, opt_extraInfoSpec);
+
+// chrome.webNavigation.onDOMContentLoaded.addListener(sendMessage);
+// chrome.webNavigation.onCompleted.addListener(sendMessage);
+
+// var error = obj.error;
+// if (!obj || chrome.runtime.lastError || obj.error) {
+//
+//     if (chrome.runtime.lastError) {
+//         error.html('<h6>Error :( Something wrong with current tab. Try to reload it.</h6>');
+//     } else if (!obj) {
+//         error.html('<h6>Error :( Null response from content script</h6>');
+//     } else if (obj.error) {
+//         error.html('<h6>Error :\'( ' + obj.message + '</h6>');
+//     }
+//
+//     error.show();
+//     return;
+// } else {
+//     error.hide();
+// }
+
+// function sendMessage(detail) {
+//     chrome.tabs.query({'active': true, 'currentWindow': true}, function (tab) {
+//         if(tab.length > 0){
+//             chrome.tabs.sendMessage(tab[0].id, detail, readResponse);
+//         }
+//     });
+//     return(detail);
+// }
+
+// function currentWindow() {
+//     chrome.tabs.query({ 'active': true, 'currentWindow': true }, function (tab) {
+//         tab_url = tab[0].url;
+//     });
+// }
+
+
+//20190403
+
+
+var url_post = "http://127.0.0.1:8000/receive_click";
+
+$(document).ready(function () {
+    var xpath = "";
+    // xpath,  receive all element
+    $("*").click(function () {
+        var inter_xpath = addXpath($(this));
+        if (inter_xpath !== false) {
+            xpath = inter_xpath + xpath;
+        }
+
+    });
+    // each element find this tag
+    function addXpath($ele) {
+        var tagName = $ele[0].tagName.toLowerCase();
+        var index = $ele.parent().children(tagName).index($ele) + 1;
+        if (tagName !== "html") {
+            return '/' + tagName + '[' + index + ']';
+
+        } else {
+            return false;
+        }
+    }
+
+    $('body').on("click keydown", function (item) {
+        xpath = "/html[1]" + xpath;
+
+        var baseUrl = item.originalEvent.currentTarget.baseURI; // event occur at which tag and which tag's url
+        var url_post_itner = url_post.replace(/\/receive_click/g, "");
+        var html = document.getElementsByTagName("html")[0].innerHTML;
+
+        if (baseUrl.indexOf(url_post_itner) !== -1) {
+            return
+        }
+
+        var typeIs = item.handleObj.type; // keydown, click
+        if (typeIs === "keydown") {
+            keyPress = item.originalEvent.code;
+            if (keyPress !== "Enter") {
+                return;
+            }
+        } else {
+            keyPress = "";
+        }
+
+        var timestamp = Date.parse(new Date());//;new Date().getTime()
+
+        var setSettings = {
+            Url:location.href,
+            BaseUrl:item.originalEvent.currentTarget.baseURI,
+            TypeIs:typeIs,
+            Resource:"Resource",
+            Timestamp:timestamp,
+            xpath: xpath,
+            html: html,
+        };
+
+        $.post(url_post,setSettings);
+        console.log(setSettings);
+        xpath = ""
+    });
+
+});
+
