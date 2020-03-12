@@ -1,6 +1,7 @@
 # Form to Rule Self-Learning Approach for RPA
 
 This is a research holding by the Chair of Process and Data Science, RWTH Aachen University.
+The paper is [here](https://link.springer.com/chapter/10.1007/978-3-030-33246-4_6)
 
 The more technical detail of this research could be found in our paper, Automated Robotic Process Automation: A Self-Learning Approach. Meanwhile, some paragraphs and pictures in this document quote the paper.
 
